@@ -69,7 +69,7 @@ compare_moy_gibbs <- function(X, Y,mu0=NULL,s_m0 =NULL, s0=NULL, n_s0=NULL,
     return(c(list(mean(x)),quantile(x,probs=probs)))
   }
   res_infe<-lapply(1:Ngroup, function(x) estim_moy_gibbs(X[which(Y==levels(Y)[x])],
-                                                         mu0[x],s_m0[x],s0[x],n_s0[x], n_sample =length(which(Y==levels(Y)[x]))
+                                                         mu0[x],s_m0[x],s0[x],n_s0[x], n_sample =n_sample)
   ))
   res_prior<- lapply(1:Ngroup, function(x) rnorm(n_sample,
                                                  mu0[x],s0[x]
